@@ -1,0 +1,510 @@
+
+  LINK.HTML
+<frameset rows ="20%,60%,20%">
+    <frame src ="top.html" name="top">
+        <frameset cols ="30% ,70%">
+            <frame src ="ls.html" name="left">
+            <frame src ="right.html" name="right"></frame>
+            
+        </frameset>
+        <frameset rows="20%">
+            <frame src="footer.html" name ="bottom">
+        </frameset>
+</frameset>
+
+ABOUT.HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+/* Reset some default styles */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the header */
+header {
+    background-color: #b7e61e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #d41b1b;
+    font-weight: bold;
+}
+
+/* Style the main content */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+/* Style the footer */
+footer {
+    background-color: #239ab5;
+    color: #531337;
+    text-align: center;
+    padding: 10px;
+}
+</style>
+
+<body>
+    <header>
+        <h1>About Us</h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <!-- Add other navigation links here -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2 align="center">ABOUT US</h2>
+            <p><strog>BIG BARKERS</strog>allows pet sellers and buyers alike to meet for free if you're an animals lover,its one of the most exciting website around .<em>big barkers</em>are completely free!
+         </p>
+        </section>
+        <section>
+            <h2 align="margin-right">Our Team</h2>
+            <ul>
+                <li>Marketing team</li>
+                <ol>  JASMINE ELSY</ol>
+                <ol>SHAMINI</ol>
+                
+                <li>Sales team </li>
+                <ol> JOHN BOSCO
+                </ol>
+                <ol>FRBIN JOSH</ol>
+                <li>Medical term </li>
+                <ol>JOAL JEFFERY
+                </ol>
+                <ol>
+                    JENI JOSEPH
+                </ol>
+                <!-- Add more team members here -->
+            </ul>
+        </section>
+    </main>
+   
+</body>
+</html>
+
+TOP.HTML
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="orange">
+
+    <header>
+        <h1 align="center" bgcolor="black">BIG BARKERS</h1>
+        <h2 align="center" bgcolor ="black">
+            REAL PETS FOR YOUR LOVE AND CARE   
+        </h2>
+    </header>
+</body>
+</html>
+
+FOOTER.HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="red">
+
+    <header>
+        <h1 align="center" >@ BIG BARKERS</h1>
+        <h4> query:bigbarkers2004@gmail.com</h4>
+    </header>
+</body>
+</html>
+
+LOGIN.HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        /* Reset some default styles */
+body, h1, form, input, button {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Style the login form */
+.login-form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+    </style>
+    <div class="container">
+        <form class="login-form" action="process-login.php" method="post">
+            <h1>Login</h1>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
+
+LEFT.HTML
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="mobile">
+            <span class="icon-container">
+                <a href="login.html" target="right">
+                    <i class="first fas fa-book-open" size="2x"></i>
+                    <p class="first">LOGIN</p>
+                </a>
+            </span>
+            <!-- Add more links as needed -->
+            <span class="icon-container">
+                <a href="about.html" target="right">
+                    <i class="second fas fa-edit"></i>
+                    <p class="second">ABOUT</p>
+                </a>
+            </span>
+            
+            <span class="icon-container">
+                <a href="samplefood.html" target="right">
+                    <i class="fourth fas fa-heartbeat"></i>
+                    <p class="fourth">SAMPLE FOOD</p>
+                </a>
+            </span>
+            
+            
+        </div>
+    </div>
+    <body bgcolor="pink">
+        <ul class="navbar">
+            <li class="nav-item"><a href="login.html" target="right"><h1>Home</h1></a></li>
+            <li class="nav-item"><a href="about.html" target="right"><h1>About Us</h1></a></li>
+            <li class="nav-item"><a href="samplefood.html" target="right"><h1>Contact</h1></a></li>
+        </ul>
+    </body>
+</body>
+</html>
+
+RIGHT.HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diana</title>
+    </head>
+<body>
+    <div class="container">
+        <div class="image" align ="center">
+          <img src="ice.png" class="img" align="center" alt="" width="1000px" height="500px">
+        </div>
+
+</body>
+</html>
+
+TYPES OF BEHAVIOUR.HTML
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+/* Reset some default styles */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the header */
+header {
+    background-color: #d840db;
+    color: #212369;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+
+
+/* Style the main content */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+/* Style the footer */
+footer {
+    background-color: #239ab5;
+    color: #531337;
+    text-align: center;
+    padding: 10px;
+}
+</style>
+
+<body>
+   
+
+    <header>
+        <h1> sample food </h1>
+        <nav>
+            <ul>
+                <li><a href="typesbeha.html"></a></li>
+                <!-- Add other navigation links here -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2 align="center"> </h2>
+            <p>All you need to do is click the button below and order your sample*. We’ll deliver it for free right to your doggy door in just a few days.</p>
+        </section>
+        <div class="container">
+            <div class="image" align ="center">
+              <img src="Dry-Dog-Food.png" class="img" align="center" alt="" width="500px" height="500px">
+            </div>
+    
+    </body>
+    </html>
+
+SAMPLE FOOD.HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+/* Reset some default styles */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the header */
+header {
+    background-color: #16be51;
+    color: #692155;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+
+
+/* Style the main content */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+/* Style the footer */
+footer {
+    background-color: #239ab5;
+    color: #531337;
+    text-align: center;
+    padding: 10px;
+}
+</style>
+
+<body>
+   
+
+    <header>
+        <h1> sample food </h1>
+        <nav>
+            <ul>
+                <li><a href="samplefood.html"></a></li>
+                <!-- Add other navigation links here -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2 align="center"> ORDER NOW AND GET FREE SHIPPING </h2>
+            <p>All you need to do is click the button below and order your sample*. We’ll deliver it for free right to your doggy door in just a few days.</p>
+        </section>
+        <div class="container">
+            <div class="image" align ="center">
+              <img src="Dry-Dog-Food.png" class="img" align="center" alt="" width="500px" height="500px">
+            </div>
+    
+    </body>
+    </html>
+
+
+
+
