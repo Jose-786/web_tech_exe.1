@@ -1,0 +1,86 @@
+index.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Objects</title>
+</head>
+<body>
+    <form method="GET" action="sessid1">   
+        Enter Student Name:<input type="text" name="stName"/><br/>  
+        <input type="submit" value="Go"/>  
+    </form>
+</body>
+</html>
+
+
+sessionid1.java:
+import java.io.*;  
+import javax.servlet.*;  
+import javax.servlet.http.*;  
+
+
+public class sessionid1 extends HttpServlet {  
+public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{  
+        try{  
+        response.setContentType("text/html");  
+        PrintWriter out = response.getWriter();  
+        String n=request.getParameter("stName");  
+        out.print("Welcome "+n);  
+        HttpSession session=request.getSession();  
+        session.setAttribute("student_name",n);  
+        out.print("<a href='sessid2'>visit Marksheet</a>");           
+        out.close(); 
+        }catch(Exception e){System.out.println(e);}  
+    }
+} 
+sessionid2.java:
+import java.io.*;  
+import javax.servlet.*;  
+import javax.servlet.http.*;  
+  
+public class sessionid2 extends HttpServlet {  
+public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+        try{  
+        response.setContentType("text/html");  
+        PrintWriter out = response.getWriter();  
+        HttpSession session=request.getSession(false);  
+        String n=(String)session.getAttribute("student_name");  
+        out.println("<h2>Hello "+ n + "! Check out your marks below:</h2>");
+        out.println("<h3>STUDENT MARKSHEET</h3>");
+        out.println("<h4>Subject 1: Mark1</h4>");
+        out.println("<h4>Subject 2: Mark2</h4>");
+        out.println("<h4>Subject 3: Mark3</h4><br />");  
+        out.close();  
+        }catch(Exception e){System.out.println(e);}  
+    }
+}
+
+
+web.xml:
+<web-app>
+<!-- Session Object 1 -->
+    <servlet>
+        <servlet-name>SessionObj1</servlet-name>
+        <servlet-class>sessionid1</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>SessionObj1</servlet-name>
+        <url-pattern>/sessid1</url-pattern>
+    </servlet-mapping>
+<!-- Session Object 2 -->
+    <servlet>
+        <servlet-name>SessionObj2</servlet-name>
+        <servlet-class>sessionid2</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>SessionObj2</servlet-name>
+        <url-pattern>/sessid2</url-pattern>
+    </servlet-mapping>
+</web-app>
