@@ -1,0 +1,71 @@
+index.html: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handling form Data using Servlets</title>
+</head>
+<body>
+    <h1>Student Portal</h1>
+    <form name="loginform" method="POST" action="http://localhost:8080/Fathima-Servlets/LoginCookie">
+        <h2> Enter value for cookie</h2>
+        Student Name: <input type="text" name="stname"><br />
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+
+cookie.java:
+/*to get the student name using cookies*/
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+
+public class cookie extends HttpServlet {
+   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+   {
+     try{
+        response.setContentType("text/html");
+
+
+        PrintWriter pwriter = response.getWriter();
+
+
+        String in_data = request.getParameter("stname");
+        
+        Cookie c = new Cookie("Ucookie",in_data);      
+
+
+        response.addCookie(c);
+
+
+        pwriter.print("<h3>Hello "+ in_data + "! Welcome to your dashboard</h3>");
+
+
+        pwriter.println("<br /> This is how cookie is SET");
+      
+        pwriter.close();
+    }
+     catch(Exception exp){
+       System.out.println(exp);
+     }
+  }
+}
+
+
+web.xml:
+<web-app>
+    <servlet>
+        <servlet-name>LoginCookie</servlet-name>
+        <servlet-class>cookie</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>LoginCookie</servlet-name>
+        <url-pattern>/LoginCookie</url-pattern>
+    </servlet-mapping>
+</web-app>
