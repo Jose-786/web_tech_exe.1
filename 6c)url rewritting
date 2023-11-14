@@ -1,0 +1,89 @@
+index.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Rewriting</title>
+</head>
+<body>
+    <form method="GET" action="url1">  
+        Enter Student Name:<input type="text" name="stName"/><br/>  
+        <input type="submit" value="Go"/>  
+    </form>
+</body>
+</html>
+urlServlet1.java:
+import java.io.*;  
+import javax.servlet.*;  
+import javax.servlet.http.*;  
+
+
+public class urlServlet1 extends HttpServlet {  
+public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{  
+        try{  
+            response.setContentType("text/html");  
+            PrintWriter out = response.getWriter();  
+            String n=request.getParameter("stName");  
+            out.print("Welcome "+ n +"to your Dashboard");  
+            //Sending the student name to the next page using URL rewriting
+            out.print("<a href='url2?sname="+n+" '>visit the next page to see your marks</a>");  
+            out.close();  
+        }
+        catch(Exception e){System.out.println(e);}  
+    } 
+}
+
+
+urlServlet2.java:
+import java.io.*;  
+import javax.servlet.*;  
+import javax.servlet.http.*;  
+
+
+public class urlServlet2 extends HttpServlet {  
+public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    try{  
+        response.setContentType("text/html");  
+        PrintWriter out = response.getWriter();            
+        //getting value from the query string  
+        String n=request.getParameter("sname");  
+        out.println("<h2>Hello "+ n + "Check out your marks below:</h2>");
+        out.println("<h3>STUDENT MARKSHEET</h3>");
+        out.println("<h4>Subject 1: Mark1</h4>");
+        out.println("<h4>Subject 2: Mark2</h4>");
+        out.println("<h4>Subject 3: Mark3</h4><br />");
+        out.close();  
+        }catch(Exception e){System.out.println(e);}  
+    } 
+}
+
+
+web.xml:
+<web-app>
+<!-- URL Servlet 1 -->
+    <servlet>
+        <servlet-name>urlServlet1</servlet-name>
+        <servlet-class>urlServlet1</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>urlServlet1</servlet-name>
+        <url-pattern>/url1</url-pattern>
+    </servlet-mapping>
+<!-- URL Servlet 2 -->
+    <servlet>
+        <servlet-name>urlServlet2</servlet-name>
+        <servlet-class>urlServlet2</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>urlServlet2</servlet-name>
+        <url-pattern>/url2</url-pattern>
+    </servlet-mapping>
+</web-app>
+
+
