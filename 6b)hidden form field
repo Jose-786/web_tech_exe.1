@@ -1,0 +1,90 @@
+index.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login Page</title>
+</head>
+<body>
+    <form action="http://localhost:8080/HiddenForm/sessionH1" method="POST">
+        Enter Student Name:<input type="text" name="stname"/><br/>  
+        <input type="submit" value="Go"/> 
+</body>
+</html>
+
+
+sessionh1.java:
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class sessionh1 extends HttpServlet {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            response.setContentType("text/html");  
+            PrintWriter out = response.getWriter();  
+          
+            String n=request.getParameter("stname");  
+            out.print("Welcome to your Dashboard "+n);  
+            //creating form that has invisible textfield  
+            out.print("<form action='http://localhost:8080/HiddenForm/sessionH2' method='GET'>");  
+            out.print("<input type='hidden' name='hidden_stname' value='"+n+"'>");  
+            out.print("<input type='submit' value='See your Marksheet'>");  
+            out.print("</form>");  
+            out.close(); 
+        } catch (Exception exp) {
+            System.out.println(exp);
+        }
+    }
+}
+
+sessionh2.java:
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class sessionh2 extends HttpServlet {
+   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+   {
+     try {
+        response.setContentType("text/html");  
+         PrintWriter out = response.getWriter();  
+        //Getting the value from the hidden field  
+        String n=request.getParameter("hidden_stname");  
+        out.println("Hello "+n+". Check out your marks below:");   
+
+
+        out.println("<h3>STUDENT MARKSHEET</h3>");
+        out.println("<h4>Subject 1: Mark1</h4>");
+        out.println("<h4>Subject 2: Mark2</h4>");
+        out.println("<h4>Subject 3: Mark3</h4><br />");
+        out.close();
+    } catch (Exception exp) {
+       System.out.println(exp);
+    }
+  }
+}
+
+
+web.xml:
+<web-app>  
+<!-- Program sessionh1.java -->
+    <servlet>
+        <servlet-name>Session_h1</servlet-name>
+        <servlet-class>sessionh1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Session_h1</servlet-name>
+        <url-pattern>/sessionH1</url-pattern>
+    </servlet-mapping>
+<!-- Program sessionh2.java -->
+    <servlet>
+        <servlet-name>Session_h2</servlet-name>
+        <servlet-class>sessionh2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Session_h2</servlet-name>
+        <url-pattern>/sessionH2</url-pattern>
+    </servlet-mapping>
+</web-app>
+
